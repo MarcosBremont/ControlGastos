@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ControlGastos.Pantallas.ListaGastosIngresos"
+             Title="Ingresos y Gastos"
+             IconImageSource="Salario">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" Margin="0,0,0,-90" BackgroundColor="White"  x:Name="StackLayoutTablaPosiciones">
+
+            <StackLayout Margin="10,0,10,0" x:Name="LayoutGanancias">
+                <Label HorizontalOptions="Center" Text="Leaderboard" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#333"></Label>
+
+                <Grid Grid.Row="1" HeightRequest="25" BackgroundColor="#333" Padding="6">
+
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition  Width="100"></ColumnDefinition>
+                        <ColumnDefinition Width="100"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label FontAttributes="Bold" FontSize="12"  TextColor="White" Text="mes" Grid.Column="0"></Label>
+                    <Label FontAttributes="Bold" FontSize="12" TextColor="White" Text="dinero" Grid.Column="1"></Label>
+                    <Label FontAttributes="Bold" FontSize="12" TextColor="White" Text="descripcion" Grid.Column="2"></Label>
+                    <Label FontAttributes="Bold" FontSize="12" TextColor="White" Text="Gasto o Ingreso" Grid.Column="3"></Label>
+
+                </Grid>
+
+                <Grid >
+                    <ListView Margin="0,0,0,80" x:Name="lsv_TablaPuntuacion" VerticalOptions="FillAndExpand" SeparatorVisibility="Default" SeparatorColor="#3E5569" HasUnevenRows="True" >
+                        <ListView.ItemTemplate>
+
+                            <DataTemplate >
+
+                                <ViewCell>
+
+
+                                    <Grid  BackgroundColor="White">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="100"></ColumnDefinition>
+                                            <ColumnDefinition Width="100"></ColumnDefinition>
+                                            <ColumnDefinition Width="100"></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+
+                                        <Label LineBreakMode="TailTruncation" TextColor="#333" Margin="10,0,0,0"  Grid.Column="0" FontSize="12" HorizontalOptions="Start" Text="{Binding mes}"/>
+                                        <Label TextColor="#333" Grid.Column="1" FontSize="12" HorizontalOptions="Start" Text="{Binding dinero}"/>
+                                        <Label TextColor="#333" LineBreakMode='TailTruncation' Grid.Column="2" FontSize="12" HorizontalOptions="Start" Text="{Binding descripcion}"/>
+                                        <Label TextColor="#333" LineBreakMode='TailTruncation' Grid.Column="3" FontSize="12" HorizontalOptions="Start" Text="{Binding gastoingreso}"/>
+                                    </Grid>
+
+
+                                    <!--ITEM-->
+                                </ViewCell>
+                            </DataTemplate>
+
+
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+
+
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
