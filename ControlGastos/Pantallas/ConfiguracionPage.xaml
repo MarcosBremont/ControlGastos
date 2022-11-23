@@ -1,14 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customcontrol="clr-namespace:ControlGastos.CustomControls"
              x:Class="ControlGastos.Pantallas.ConfiguracionPage"
              Title="Configuraciones"
              IconImageSource="gear">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Tu Token es:"></Label>
+            <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
+                <customcontrol:CustomEntry FontSize="17"  Placeholder="Tu Token" TextColor="White" PlaceholderColor="White" HorizontalOptions="FillAndExpand" 
+                                                       TextTransform="None" x:Name="TxtToken"  Margin="5" />
+            </Frame>
+
+            <Label Text="Token de tu companer@:"></Label>
+                <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
+                    <customcontrol:CustomEntry FontSize="17"  Placeholder="Token Compañer@" TextColor="White" PlaceholderColor="White" HorizontalOptions="FillAndExpand" 
+                                                       TextTransform="None" x:Name="TxtTokenCompa"  Margin="5" />
+                </Frame>
+
+
+            <Button Text="Guardar" x:Name="BtnGuardar" Clicked="BtnGuardar_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

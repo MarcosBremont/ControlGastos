@@ -6,9 +6,11 @@ namespace ControlGastos
 {
     public partial class App : Application
     {
+        public static int idControlGastosAppTokens { get; set; }
         public static string nombre { get; set; }
         public static string clave { get; set; }
         public static string token { get; set; }
+        public static string tokenCompa { get; set; }
         public static string mes { get; set; }
         public static string mes2 { get; set; }
         public static string tokens { get; set; }

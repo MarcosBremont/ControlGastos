@@ -30,8 +30,11 @@ namespace ControlGastos.Pantallas
             {
                 //using (UserDialogs.Instance.Loading("loading", null, null, true, MaskType.Black))
                 //{
-                    var datos = await metodos.GetControlGastosIngresos(App.token);
-                    lsv_TablaPuntuacion.ItemsSource = datos;
+                var datos = await metodos.GetControlGastosIngresos(App.token);
+                lsv_TablaPuntuacion.ItemsSource = datos;
+
+                var datosCompanero = await metodos.GetControlGastosIngresos(App.tokenCompa);
+                lsv_TablaPuntuacion2.ItemsSource = datosCompanero;
                 //}
             }
             catch (Exception ex)

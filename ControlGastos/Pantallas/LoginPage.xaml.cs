@@ -66,6 +66,8 @@ namespace ControlGastos.Pantallas
                     {
                         App.token = result.tokens;
                         App.nombre = result.nombre;
+                        App.tokenCompa = result.nombrepersonaentrante;
+                        App.idControlGastosAppTokens = result.idControlGastosAppTokens;
                         //toastConfig.MostrarNotificacion($"Welcome {result.name}", ToastPosition.Top, 3, "#51C560");
                         await Navigation.PushModalAsync(new TabbedPagePrincipal());
                         DatosConfiguracion.GrabarDatosSesion(TxtUsername.Text, TxtPassword.Text, "N");

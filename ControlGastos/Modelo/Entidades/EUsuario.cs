@@ -10,6 +10,8 @@ namespace ControlGastos.Modelo.Entidades
         public string clave { get; set; }
         public string tokens { get; set; }
         public string respuesta { get; set; }
+        public string nombrepersonaentrante { get; set; }
+        public int idControlGastosAppTokens { get; set; }
         public string result { get; set; }
     }
 }

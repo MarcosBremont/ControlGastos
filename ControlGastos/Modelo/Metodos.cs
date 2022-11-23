@@ -14,9 +14,9 @@ namespace ControlGastos.Modelo
         {
             // constructor
         }
-        public async Task<EGastosIngresos> IGastoIngreso(string mes, string dinero, string descripcion, string nombrepersonaentrante)
+        public async Task<EGastosIngresos> IGastoIngreso(string mes, string dinero, string descripcion, string nombrepersonaentrante, string gastoingreso)
         {
-            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/IControlGastos/{mes.ToUpper()}/{dinero.ToUpper()}/{descripcion.ToUpper()}/{nombrepersonaentrante.ToUpper()}");
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/IControlGastos/{mes.ToUpper()}/{dinero.ToUpper()}/{descripcion.ToUpper()}/{nombrepersonaentrante.ToUpper()}/{gastoingreso.ToUpper()}");
             var response = Newtonsoft.Json.JsonConvert.DeserializeObject<EGastosIngresos>(result);
             return response;
         }
@@ -71,7 +71,12 @@ namespace ControlGastos.Modelo
         } // Fin del método ObtenerTablaDePosiciones
 
 
-
+        public async Task<ETokens> UToken(int idControlGastosAppTokens, string token, string nombre, string nombrepersonaentrante)
+        {
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/UToken/{idControlGastosAppTokens}/{token.ToUpper()}/{nombre.ToUpper()}/{nombrepersonaentrante.ToUpper()}");
+            var response = Newtonsoft.Json.JsonConvert.DeserializeObject<ETokens>(result);
+            return response;
+        }
 
 
     }

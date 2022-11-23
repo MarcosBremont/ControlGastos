@@ -6,27 +6,24 @@
 
         <StackLayout Margin="0,10,0,0" BackgroundColor="White">
 
-            <Image Source="NuevoLogoRememberMe.png" WidthRequest="100"></Image>
+            <Image Source="Logo.png" WidthRequest="150"></Image>
 
-            <Label TextColor="#215CD4" FontSize="20" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Hello Again!"></Label>
-            <Label Margin="0,10,0,0" TextColor="#333" FontSize="18" HorizontalOptions="CenterAndExpand" Text="Welcome back, you've been missed!"></Label>
+            <!--<Label TextColor="#215CD4" FontSize="20" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Hello Again!"></Label>-->
+            <!--<Label Margin="0,10,0,0" TextColor="#333" FontSize="18" HorizontalOptions="CenterAndExpand" Text="Welcome back, you've been missed!"></Label>-->
 
-            <StackLayout Margin="10,25,10,0">
-                <Frame Padding="0" BorderColor="White" Margin="0,0,30,0" HasShadow="False" CornerRadius="8" x:Name="FrUsername" >
+            <StackLayout Margin="10,0,10,0">
+                <Frame Padding="0"  BorderColor="#333" Margin="0,0,0,0" HasShadow="False" CornerRadius="8" x:Name="FrUsername" >
 
                     <StackLayout Orientation="Horizontal" Margin="4" >
-                        <Image HeightRequest="24" Source="user128"></Image>
-
                         <customcontrol:CustomEntry HorizontalOptions="FillAndExpand" Text="MarcosBremont" TextTransform="Uppercase" TextColor="#333" PlaceholderColor="#333" FontSize="14" HeightRequest="40" x:Name="TxtUsername"
                                                    Keyboard="Default" Placeholder="Nombre de Usuario"/>
 
                     </StackLayout>
                 </Frame>
 
-                <Frame Padding="0" BorderColor="White" HasShadow="False"  CornerRadius="8" Margin="0,10,0,15" x:Name="FrPassword" >
+                <Frame BorderColor="#333" Padding="0" HasShadow="False"  CornerRadius="8" Margin="0,10,0,15" x:Name="FrPassword" >
 
                     <StackLayout Orientation="Horizontal" Margin="4" >
-                        <Image HeightRequest="24" Source="lock128"></Image>
 
                         <customcontrol:CustomEntry HorizontalOptions="FillAndExpand" Text="1234" TextTransform="Uppercase" TextColor="#333" PlaceholderColor="#333" FontSize="14" HeightRequest="40" IsPassword="True" x:Name="TxtPassword"
                                                    Keyboard="Default"  Placeholder="Contraseña"/>
@@ -43,29 +40,29 @@
 
 
                 <StackLayout x:Name="LayoutOlvideMiContraseña" HorizontalOptions="End" Orientation="Horizontal">
-                    <Label HorizontalOptions="End" TextColor="#215CD4" FontAttributes="Bold" Margin="0,0,0,0" Text="Forgot password?"></Label>
+                    <Label HorizontalOptions="End" TextColor="#333" FontAttributes="Bold" Margin="0,0,0,0" Text="Forgot password?"></Label>
                 </StackLayout>
 
-                <Button Margin="5,10,5,0" Clicked="BtnLogin_Clicked" VerticalOptions="Center" x:Name="BtnLogin" Text="LOGIN" FontAttributes="Bold" CornerRadius="14"
-                        TextColor="White" BackgroundColor="#215CD4"/>
+                <Button Margin="5,10,5,0" Clicked="BtnLogin_Clicked" VerticalOptions="Center" x:Name="BtnLogin" Text="LOGIN" FontAttributes="Bold" CornerRadius="6"
+                        TextColor="White" BackgroundColor="#4EC864"/>
 
 
-                <StackLayout x:Name="SignUpHere" HorizontalOptions="Center" Orientation="Horizontal">
+                <!--<StackLayout x:Name="SignUpHere" HorizontalOptions="Center" Orientation="Horizontal">
                     <Label HorizontalOptions="Center" TextColor="#333" Margin="0,8,0,0" Text="Don't you have an account?"></Label>
-                    <Label HorizontalOptions="Center" TextColor="#215CD4" FontAttributes="Bold" Margin="0,8,0,0" Text="Sign up"></Label>
-                </StackLayout>
+                    <Label HorizontalOptions="Center" TextColor="#333" FontAttributes="Bold" Margin="0,8,0,0" Text="Sign up"></Label>
+                </StackLayout>-->
 
 
 
-                <StackLayout x:Name="LayoutProblem" HorizontalOptions="Center" Orientation="Horizontal">
+                <!--<StackLayout x:Name="LayoutProblem" HorizontalOptions="Center" Orientation="Horizontal">
                     <Label HorizontalOptions="Center" FontSize="12" TextColor="IndianRed" FontAttributes="Bold" Margin="0,8,0,0" Text="Report a problem"></Label>
-                </StackLayout>
+                </StackLayout>-->
 
             </StackLayout>
 
             <StackLayout VerticalOptions="EndAndExpand">
-                <Label HorizontalOptions="Center" x:Name="LblUpdated" TextColor="IndianRed" FontAttributes="Italic" Margin="0,5,0,0" FontSize="12" Text="You're updated"></Label>
-                <Label HorizontalOptions="Center" TextColor="Black" x:Name="LblVersion" FontAttributes="Bold" Margin="0,5,0,0" FontSize="12" Text="Version 4.8"></Label>
+                <!--<Label HorizontalOptions="Center" x:Name="LblUpdated" TextColor="IndianRed" FontAttributes="Italic" Margin="0,5,0,0" FontSize="12" Text="You're updated"></Label>-->
+                <Label HorizontalOptions="Center" TextColor="Black" x:Name="LblVersion" FontAttributes="Bold" Margin="0,5,0,0" FontSize="12" Text="Version 1.0"></Label>
                 <Label HorizontalOptions="Center" TextColor="Black" FontSize="12" FontAttributes="Bold" Margin="0,5,0,5" Text=" Created by @MarcosBremont"></Label>
             </StackLayout>
 
