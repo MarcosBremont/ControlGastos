@@ -3,24 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customcontrol="clr-namespace:ControlGastos.CustomControls"
              x:Class="ControlGastos.Pantallas.ConfiguracionPage"
              Title="Configuraciones"
+             BackgroundColor="#000000"
              IconImageSource="gear">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Tu Token es:"></Label>
+        <StackLayout Margin="10">
+            <Label TextColor="White" FontAttributes="Bold" Text="Tu Token es:"></Label>
             <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
                 <customcontrol:CustomEntry FontSize="17"  Placeholder="Tu Token" TextColor="White" PlaceholderColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtToken"  Margin="5" />
             </Frame>
 
-            <Label Text="Token de tu companer@:"></Label>
+            <Label TextColor="White" FontAttributes="Bold" Text="Token de tu companer@:"></Label>
                 <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
                     <customcontrol:CustomEntry FontSize="17"  Placeholder="Token Compañer@" TextColor="White" PlaceholderColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtTokenCompa"  Margin="5" />
                 </Frame>
 
 
-            <Button Text="Guardar" x:Name="BtnGuardar" BackgroundColor="#4EC864" Clicked="BtnGuardar_Clicked"></Button>
-            <Button Text="Cerrar Sesión" x:Name="BtnCerrarSesion" BackgroundColor="#4EC864" Clicked="BtnCerrarSesion_Clicked"></Button>
+            <Button Margin="0,10,0,0" Text="Guardar" x:Name="BtnGuardar" BackgroundColor="#4EC864" Clicked="BtnGuardar_Clicked"></Button>
+            <Button Margin="0,10,0,0" Text="Cerrar Sesión" x:Name="BtnCerrarSesion" BackgroundColor="#4EC864" Clicked="BtnCerrarSesion_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

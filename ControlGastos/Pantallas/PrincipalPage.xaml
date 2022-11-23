@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customcontrol="clr-namespace:ControlGastos.CustomControls"
              x:Class="ControlGastos.Pantallas.PrincipalPage"
              Title="Inicio"
+             BackgroundColor="#000000"
              IconImageSource="gasto512">
     <ContentPage.Content>
         <StackLayout>
@@ -13,7 +14,7 @@
                 </Grid.RowDefinitions>
 
                 <ScrollView Grid.Row="1">
-                    <StackLayout Orientation="Vertical" Padding="30,24,30,0" Spacing="10">
+                    <StackLayout Orientation="Vertical" Padding="30,0,30,0" Spacing="10">
                         <Label Text="Por favor describa los gastos que ha tenido en el mes actual" TextColor="White" FontSize="16" Padding="0,0,0,0"/>
 
                         <Frame BackgroundColor="#171717" Padding="0" CornerRadius="8">
