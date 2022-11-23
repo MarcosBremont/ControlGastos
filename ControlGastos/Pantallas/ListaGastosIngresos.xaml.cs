@@ -24,24 +24,28 @@ namespace ControlGastos.Pantallas
         {
 
             base.OnAppearing();
-            //Anuncio.IsVisible = true;
-
             try
             {
-                //using (UserDialogs.Instance.Loading("loading", null, null, true, MaskType.Black))
-                //{
-                var datos = await metodos.GetControlGastosIngresos(App.token);
-                lsv_TablaPuntuacion.ItemsSource = datos;
-
-                var datosCompanero = await metodos.GetControlGastosIngresos(App.tokenCompa);
-                lsv_TablaPuntuacion2.ItemsSource = datosCompanero;
-                //}
+                Refresh();
             }
             catch (Exception ex)
             {
-                //Acr.UserDialogs.UserDialogs.Instance.Toast("Please check your internet connection");
             }
 
+        }
+
+        private void BtnRefrescar_Clicked(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        public async void Refresh()
+        {
+            var datos = await metodos.GetControlGastosIngresos(App.token);
+            lsv_TablaPuntuacion.ItemsSource = datos;
+
+            var datosCompanero = await metodos.GetControlGastosIngresos(App.tokenCompa);
+            lsv_TablaPuntuacion2.ItemsSource = datosCompanero;
         }
     }
 }

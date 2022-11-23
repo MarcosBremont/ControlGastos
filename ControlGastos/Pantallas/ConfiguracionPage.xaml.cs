@@ -26,11 +26,19 @@ namespace ControlGastos.Pantallas
             var Register = await metodos.UToken(App.idControlGastosAppTokens, App.token, App.nombre, TxtTokenCompa.Text);
             if (Register.respuesta == "OK")
             {
-                await DisplayAlert("Alert", "Greattttt", "OK");
+                await DisplayAlert("Información", "Guardando Token", "OK");
             }
             else
             {
-                await DisplayAlert("Alert", "You have been alerted", "OK");
+                await DisplayAlert("Alerta", "El token no se pudo guardar", "OK");
+            }
+        }
+
+        private async void BtnCerrarSesion_Clicked(object sender, EventArgs e)
+        {
+            if (await DisplayAlert("Informacion", "¿Deseas cerrar sesión?", "Si", "No"))
+            {
+                await Navigation.PushModalAsync(new LoginPage());
             }
         }
     }

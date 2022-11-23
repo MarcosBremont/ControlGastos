@@ -39,11 +39,11 @@
 
 
 
-                <StackLayout x:Name="LayoutOlvideMiContraseña" HorizontalOptions="End" Orientation="Horizontal">
+                <!--<StackLayout x:Name="LayoutOlvideMiContraseña" HorizontalOptions="End" Orientation="Horizontal">
                     <Label HorizontalOptions="End" TextColor="#333" FontAttributes="Bold" Margin="0,0,0,0" Text="Forgot password?"></Label>
-                </StackLayout>
+                </StackLayout>-->
 
-                <Button Margin="5,10,5,0" Clicked="BtnLogin_Clicked" VerticalOptions="Center" x:Name="BtnLogin" Text="LOGIN" FontAttributes="Bold" CornerRadius="6"
+                <Button Margin="5,10,5,0" Clicked="BtnLogin_Clicked" VerticalOptions="Center" x:Name="BtnLogin" Text="INICIAR SESION" FontAttributes="Bold" CornerRadius="6"
                         TextColor="White" BackgroundColor="#4EC864"/>
 
 

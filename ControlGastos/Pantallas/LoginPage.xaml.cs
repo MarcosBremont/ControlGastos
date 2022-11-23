@@ -53,7 +53,7 @@ namespace ControlGastos.Pantallas
 
                 if (string.IsNullOrEmpty(TxtUsername.Text) || string.IsNullOrEmpty(TxtPassword.Text))
                 {
-                    await DisplayAlert("Alert", "You have been alerted", "OK");
+                    await DisplayAlert("Alerta", "Necesitas llenar los campos antes de continuar", "OK");
 
                     //toastConfig.MostrarNotificacion($"El usuario y la contraseña son obligatorias.", ToastPosition.Top, 3, "#e63946");
                 }
@@ -75,9 +75,7 @@ namespace ControlGastos.Pantallas
                     }
                     else
                     {
-                        await DisplayAlert("Alert", "You have been alerted", "OK");
-
-                        //toastConfig.MostrarNotificacion($"the information is not correct, please check again.", ToastPosition.Top, 4, "#e63946");
+                        await DisplayAlert("Alerta", "Hubo un error a la hora de iniciar sesión", "OK");
                     }
                 }
 

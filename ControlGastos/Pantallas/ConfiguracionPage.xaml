@@ -19,7 +19,8 @@
                 </Frame>
 
 
-            <Button Text="Guardar" x:Name="BtnGuardar" Clicked="BtnGuardar_Clicked"></Button>
+            <Button Text="Guardar" x:Name="BtnGuardar" BackgroundColor="#4EC864" Clicked="BtnGuardar_Clicked"></Button>
+            <Button Text="Cerrar Sesión" x:Name="BtnCerrarSesion" BackgroundColor="#4EC864" Clicked="BtnCerrarSesion_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
