@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customcontrol="clr-namespace:ControlGastos.CustomControls"
+             x:Class="ControlGastos.Pantallas.RegistroPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White" Margin="0,0,0,0">
+
+
+            <Grid x:Name="GridVolverAtrasSettings" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" ></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0">
+                    <Grid VerticalOptions="FillAndExpand">
+
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#231F20" Margin="0,0,0,0" HeightRequest="60" 
+                                     VerticalOptions="End" HorizontalOptions="FillAndExpand" x:Name="lytBackNavSettings">
+
+                            <ImageButton Source="leftarrow.png" Clicked="BtnAtrasSettings_Clicked" x:Name="BtnAtrasSettings" 
+                                         BackgroundColor="Transparent" HeightRequest="25" Margin="16,0,0,0" ></ImageButton>
+
+                            <Label TextColor="White"
+                               Text="GO BACK"
+                               FontSize="18"
+                               x:Name="lblvolveratrasSettings"
+                               FontAttributes="Bold"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="StartAndExpand"
+                               Margin="5,0,0,0"/>
+
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+            </Grid>
+
+
+
+            <StackLayout Margin="0,0,0,0">
+
+                <Label TextColor="#3A944A" Margin="0,0,0,0" FontSize="20" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Text="Registrate aquí"></Label>
+
+                <StackLayout Margin="10,20,10,0">
+
+                    <Frame Padding="0" BorderColor="White" Margin="0,0,30,0" HasShadow="False" CornerRadius="8" x:Name="FrUsername" >
+
+                        <StackLayout Orientation="Horizontal" Margin="4" >
+                            <!--<Image HeightRequest="24" Source="user128"></Image>-->
+                            <customcontrol:CustomEntry TextTransform="Uppercase" HorizontalOptions="FillAndExpand" 
+                                                   TextColor="#333" PlaceholderColor="#333" HeightRequest="40" x:Name="TxtUsername"
+                                                   Keyboard="Default" Placeholder="Ingrese su nombre de usuario"/>
+
+                        </StackLayout>
+                    </Frame>
+
+
+                    <Frame Padding="0" BorderColor="White" HasShadow="False"  CornerRadius="8" Margin="0,0,0,15" x:Name="FrPassword" >
+
+                        <StackLayout Orientation="Horizontal" Margin="4" >
+                            <!--<Image HeightRequest="24" Source="lock128"></Image>-->
+                            <customcontrol:CustomEntry TextTransform="Uppercase" HorizontalOptions="FillAndExpand" TextColor="#333" 
+                                                       PlaceholderColor="#333" HeightRequest="40" IsPassword="True" x:Name="TxtPassword"
+                                                   Keyboard="Default"  Placeholder="Contraseña"/>
+
+                            <ImageButton BackgroundColor="Transparent" x:Name="eye" Clicked="eye_Clicked" Source="eye.png" WidthRequest="25"
+                                     />
+
+                            <ImageButton BackgroundColor="Transparent" x:Name="eyecrossed" Clicked="eyecrossed_Clicked" Source="eyecrossed.png"
+                                     IsVisible="false" WidthRequest="25" />
+
+                        </StackLayout>
+                    </Frame>
+
+                    <Button Margin="10,0,10,0" Clicked="BtnRegister_Clicked" VerticalOptions="Center" x:Name="BtnRegister" 
+                            Text="REGISTRARME" FontAttributes="Bold" CornerRadius="8"
+                        TextColor="White" BackgroundColor="#4EC864"/>
+
+                    <StackLayout x:Name="LayoutLogin" HorizontalOptions="Center" Orientation="Horizontal">
+                        <Label HorizontalOptions="Center" TextColor="#333" Margin="0,8,0,0" Text="Already have an account?"></Label>
+                        <Label HorizontalOptions="Center" TextColor="#4EC864" FontAttributes="Bold" Margin="0,8,0,0" Text="Login"></Label>
+                    </StackLayout>
+
+
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

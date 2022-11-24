@@ -17,10 +17,38 @@ namespace ControlGastos.Pantallas
     {
         ToastConfigClass toastConfig = new ToastConfigClass();
         Metodos metodos = new Metodos();
+        private bool _userTapped;
+        RegistroPage registerPage = new RegistroPage();
+
+
         public LoginPage()
         {
             InitializeComponent();
+
+            SignUpHere.GestureRecognizers.Add(
+           new TapGestureRecognizer()
+           {
+               Command = new Command(async () =>
+               {
+                   if (_userTapped)
+                       return;
+
+                   _userTapped = true;
+                   registerPage = new RegistroPage();
+                     //registerPage.OnLLamarOtraPantalla += ModalTournament_OnLLamarOtraPantalla;
+
+                     await Navigation.PushModalAsync(registerPage);
+                   await Task.Delay(1000);
+                   _userTapped = false;
+                   Opacity = 1;
+               }),
+               NumberOfTapsRequired = 1
+
+           }
+         );
         }
+
+
 
         private void eye_Clicked(object sender, EventArgs e)
         {
@@ -53,9 +81,7 @@ namespace ControlGastos.Pantallas
 
                 if (string.IsNullOrEmpty(TxtUsername.Text) || string.IsNullOrEmpty(TxtPassword.Text))
                 {
-                    await DisplayAlert("Alerta", "Necesitas llenar los campos antes de continuar", "OK");
-
-                    //toastConfig.MostrarNotificacion($"El usuario y la contraseña son obligatorias.", ToastPosition.Top, 3, "#e63946");
+                    toastConfig.MostrarNotificacion($"El usuario y la contraseña son obligatorias.", ToastPosition.Top, 3, "#e63946");
                 }
                 else
                 {
@@ -75,7 +101,7 @@ namespace ControlGastos.Pantallas
                     }
                     else
                     {
-                        await DisplayAlert("Alerta", "Hubo un error a la hora de iniciar sesión", "OK");
+                        toastConfig.MostrarNotificacion($"Hubo un error a la hora de iniciar sesión.", ToastPosition.Top, 3, "#e63946");
                     }
                 }
 
@@ -83,9 +109,7 @@ namespace ControlGastos.Pantallas
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Alert", "You have been alerted", "OK");
-
-                //toastConfig.MostrarNotificacion($"The connection could not be established, please try again later.", ToastPosition.Top, 4, "#e63946");
+                toastConfig.MostrarNotificacion($"Hubo un error a la hora de iniciar sesión.", ToastPosition.Top, 3, "#e63946");
             }
 
 

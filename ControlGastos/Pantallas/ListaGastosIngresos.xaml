@@ -67,6 +67,21 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </Grid>
+            <Frame BackgroundColor="White" Padding="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label HorizontalOptions="Center" Text="Total Gastos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                        <Label HorizontalOptions="Center" x:Name="LblTotalGastos" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label HorizontalOptions="Center" Text="Total Ingresos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                        <Label HorizontalOptions="Center" x:Name="LblIngresos" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
 
             <Label HorizontalOptions="Center" Text="Gastos e Ingresos de Tu Compañero" FontAttributes="Bold" Margin="0,0,0,0" TextColor="White"></Label>
 
@@ -106,10 +121,10 @@
                                         </Grid.ColumnDefinitions>
 
 
-                                        <Label LineBreakMode="TailTruncation" TextColor="#333" Margin="10,0,0,0"  Grid.Column="0" FontSize="12" HorizontalOptions="Start" Text="{Binding mes}"/>
+                                    <Label LineBreakMode="TailTruncation" TextColor="White" Margin="10,0,0,0"  Grid.Column="0" FontSize="12" HorizontalOptions="Start" Text="{Binding mes}"/>
                                     <Label TextColor="White" Grid.Column="1" FontSize="12" HorizontalOptions="Start" Text="{Binding dinero}"/>
                                     <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="2" FontSize="12" HorizontalOptions="Start" Text="{Binding descripcion}"/>
-                                    <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="3" FontSize="12" HorizontalOptions="EndAndExpand" Text="{Binding gastoingreso}"/>
+                                    <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="3" FontSize="12" HorizontalOptions="Start" Text="{Binding gastoingreso}"/>
                                     </Grid>
 
 
@@ -123,7 +138,22 @@
                 </Grid>
 
 
-                
+            <Frame BackgroundColor="White" Padding="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label HorizontalOptions="Center" Text="Total Gastos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                        <Label HorizontalOptions="Center" x:Name="LblTotalGastosCompa" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label HorizontalOptions="Center" Text="Total Ingresos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                        <Label HorizontalOptions="Center" x:Name="LblTotalIngresosCompa" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
 
         </StackLayout>
 

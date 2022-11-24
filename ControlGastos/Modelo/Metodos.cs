@@ -78,6 +78,31 @@ namespace ControlGastos.Modelo
             return response;
         }
 
+        public async Task<Result> CrearCuenta(string nombre, string clave, string tokens)
+        {
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/RegistrarUsuario/{nombre.ToUpper()}/{clave.ToUpper()}/{tokens.ToUpper()}");
+            var response = Newtonsoft.Json.JsonConvert.DeserializeObject<Result>(result);
+            return response;
+        }
+
+
+        public async Task<List<EGastosIngresos>> GetGastos(string gastoingreso, string nombrepersonaentrante)
+        {
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/SGastos/{gastoingreso}/{nombrepersonaentrante}");
+            var Gastos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EGastosIngresos>>(result);
+
+            return Gastos;
+        } // Fin del método ObtenerTablaDePosiciones
+
+
+        public async Task<List<EGastosIngresos>> GetIngresos(string gastoingreso, string nombrepersonaentrante)
+        {
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/SIngresos/{gastoingreso}/{nombrepersonaentrante}");
+            var Ingresos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EGastosIngresos>>(result);
+
+            return Ingresos;
+        } // Fin del método ObtenerTablaDePosiciones
+
 
     }
 }

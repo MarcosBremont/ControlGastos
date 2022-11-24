@@ -35,14 +35,18 @@ namespace ControlGastos.Pantallas
 
         private async void BtnGastos_Clicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtGastos.Text))
+            if (PickerMes.SelectedItem == null)
             {
-                await DisplayAlert("Alerta", "Primero digita un gasto", "OK");
+                toastConfig.MostrarNotificacion($"Primero seleccione un mes.", ToastPosition.Top, 3, "#e63946");
+            }
+            else if (string.IsNullOrEmpty(TxtGastos.Text))
+            {
+                toastConfig.MostrarNotificacion($"Primero digita un gasto.", ToastPosition.Top, 3, "#e63946");
                 TxtGastos.Focus();
             }
             else if (string.IsNullOrEmpty(TxtDescripcion.Text))
             {
-                await DisplayAlert("Alerta", "Primero digita la descripcion", "OK");
+                toastConfig.MostrarNotificacion($"Primero digita la descripcion.", ToastPosition.Top, 3, "#e63946");
                 TxtDescripcion.Focus();
             }
             else
@@ -51,33 +55,33 @@ namespace ControlGastos.Pantallas
 
                 if (Register.respuesta == "OK")
                 {
-                    await DisplayAlert("Alerta", "Gasto ingresado con exito", "OK");
-
-                    //toastConfig.MostrarNotificacion($"Listo", ToastPosition.Top, 3, "#3A944A");
+                    toastConfig.MostrarNotificacion($"Gasto ingresado con exito.", ToastPosition.Top, 3, "#3A944A");
                     TxtDescripcion.Text = "";
                     TxtGastos.Text = "";
-                    PickerMes.Title = "Seleccione el mes";
+                    PickerMes.SelectedItem = "";
 
                 }
                 else
                 {
-                    await DisplayAlert("Alerta", "No se pudo ingresar el gasto en este momento, intente mas tarde", "OK");
-
-                    //toastConfig.MostrarNotificacion($"No fue posible guardar el gasto.", ToastPosition.Top, 3, "#e63946");
+                    toastConfig.MostrarNotificacion($"No se pudo ingresar el gasto en este momento, intente mas tarde.", ToastPosition.Top, 3, "#e63946");
                 }
             }
         }
 
         private async void BtnIngresos_Clicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtGastos2.Text))
+            if (PickerMes2.SelectedItem == null)
             {
-                await DisplayAlert("Alerta", "Primero digita un gasto", "OK");
+                toastConfig.MostrarNotificacion($"Primero seleccione un mes.", ToastPosition.Top, 3, "#e63946");
+            }
+            else if (string.IsNullOrEmpty(TxtGastos2.Text))
+            {
+                toastConfig.MostrarNotificacion($"Primero digita un gasto.", ToastPosition.Top, 3, "#e63946");
                 TxtGastos2.Focus();
             }
             else if (string.IsNullOrEmpty(TxtDescripcion2.Text))
             {
-                await DisplayAlert("Alerta", "Primero digita la descripcion", "OK");
+                toastConfig.MostrarNotificacion($"Primero digita la descripcion.", ToastPosition.Top, 3, "#e63946");
                 TxtDescripcion2.Focus();
             }
             else
@@ -86,18 +90,14 @@ namespace ControlGastos.Pantallas
 
                 if (Register.respuesta == "OK")
                 {
-                    await DisplayAlert("Alerta", "Ingreso insertado con exito", "OK");
-
-                    //toastConfig.MostrarNotificacion($"Listo", ToastPosition.Top, 3, "#3A944A");
+                    toastConfig.MostrarNotificacion($"Ingreso guardado con exito.", ToastPosition.Top, 3, "#3A944A");
                     TxtDescripcion2.Text = "";
                     TxtGastos2.Text = "";
-                    PickerMes2.Title = "Seleccione el mes";
+                    PickerMes2.SelectedItem = "";
                 }
                 else
                 {
-                    await DisplayAlert("Alerta", "No se pudo insertar el ingreso en este momento, intente mas tarde", "OK");
-
-                    //toastConfig.MostrarNotificacion($"No fue posible guardar el ingreso.", ToastPosition.Top, 3, "#e63946");
+                    toastConfig.MostrarNotificacion($"No se pudo insertar el ingreso en este momento, intente mas tarde.", ToastPosition.Top, 3, "#3A944A");
                 }
             }
         }

@@ -47,10 +47,10 @@
                         TextColor="White" BackgroundColor="#4EC864"/>
 
 
-                <!--<StackLayout x:Name="SignUpHere" HorizontalOptions="Center" Orientation="Horizontal">
-                    <Label HorizontalOptions="Center" TextColor="#333" Margin="0,8,0,0" Text="Don't you have an account?"></Label>
-                    <Label HorizontalOptions="Center" TextColor="#333" FontAttributes="Bold" Margin="0,8,0,0" Text="Sign up"></Label>
-                </StackLayout>-->
+                <StackLayout x:Name="SignUpHere" HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label HorizontalOptions="Center" TextColor="#333" Margin="0,8,0,0" Text="¿No tienes una cuenta?"></Label>
+                    <Label HorizontalOptions="Center" TextColor="#333" FontAttributes="Bold" Margin="0,8,0,0" Text="Registrate aquí"></Label>
+                </StackLayout>
 
 
 
