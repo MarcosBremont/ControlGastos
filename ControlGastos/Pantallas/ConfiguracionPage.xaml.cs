@@ -41,9 +41,10 @@ namespace ControlGastos.Pantallas
             }
             catch (Exception ex)
             {
+                toastConfig.MostrarNotificacion($"El token no se pudo guardar.", ToastPosition.Top, 3, "#3A944A");
 
             }
-           
+
         }
 
         private async void BtnCerrarSesion_Clicked(object sender, EventArgs e)

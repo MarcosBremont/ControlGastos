@@ -8,6 +8,7 @@ namespace ControlGastos.Modelo.Entidades
     {
         public string mes { get; set; }
         public int dinero { get; set; }
+        public int idControlGastosApp { get; set; }
         public double Gastos { get; set; }
         public double Ingresos { get; set; }
         public double ingresos { get; set; }
@@ -16,5 +17,6 @@ namespace ControlGastos.Modelo.Entidades
         public string gastoingreso { get; set; }
         public string result { get; set; }
         public string respuesta { get; set; }
+
     }
 }

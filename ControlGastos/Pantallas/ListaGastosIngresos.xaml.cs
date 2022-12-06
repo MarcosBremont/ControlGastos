@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Xamarin.Essentials.Permissions;
 
 namespace ControlGastos.Pantallas
 {
@@ -16,6 +17,7 @@ namespace ControlGastos.Pantallas
     public partial class ListaGastosIngresos : ContentPage
     {
         ToastConfigClass toastConfig = new ToastConfigClass();
+        public List<Modelo.Entidades.EGastosIngresos> ListPuntos { get; set; } = new List<Modelo.Entidades.EGastosIngresos>();
 
         Metodos metodos = new Metodos();
         public ListaGastosIngresos()
@@ -47,10 +49,10 @@ namespace ControlGastos.Pantallas
         public async void Refresh()
         {
             var datos = await metodos.GetControlGastosIngresos(App.token);
-            lsv_TablaPuntuacion.ItemsSource = datos;
+            lsv_gastoseingresos.ItemsSource = datos;
 
             var Gastos = await metodos.GetControlGastosIngresos(App.tokenCompa);
-            lsv_TablaPuntuacion2.ItemsSource = Gastos;
+            lsv_gastoseinngresoscompa.ItemsSource = Gastos;
 
 
             var datosGastos = await metodos.GetGastos("G", App.token);
@@ -65,6 +67,46 @@ namespace ControlGastos.Pantallas
             var datosIngresosCompanero = await metodos.GetIngresos("I", App.tokenCompa);
             LblTotalIngresosCompa.Text = datosIngresosCompanero[0].ingresos.ToString();
 
+
+            int totalingresos = Convert.ToInt32(LblIngresos.Text);
+
+            int totalgastos = Convert.ToInt32(LblTotalGastos.Text);
+
+            int totalcalculo = totalingresos - totalgastos;
+            LblTotal.Text = totalcalculo.ToString();
+
+
+            int totalingresosCompa = Convert.ToInt32(LblTotalIngresosCompa.Text);
+
+            int totalgastosCompa = Convert.ToInt32(LblTotalGastosCompa.Text);
+
+            int totalcalculoCompa = totalingresosCompa - totalgastosCompa;
+            LblTotalCompa.Text = totalcalculoCompa.ToString();
+
+        }
+
+        async void lsv_gastoseingresos_ItemSelected(System.Object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            if (await DisplayAlert("Information", "Estas seguro que deseas eliminar este dato?", "Si", "No"))
+            {
+                try
+                {               
+                    using (UserDialogs.Instance.Loading("loading", null, null, true, MaskType.Black))
+                    {
+                        var obj = (Modelo.Entidades.EGastosIngresos)e.SelectedItem;
+                        var ide = Convert.ToInt32(obj.idControlGastosApp);
+
+                        var datos = await metodos.DIngresosGastos(ide);
+                        toastConfig.MostrarNotificacion($"Eliminado con exito.", ToastPosition.Top, 3, "#3A944A");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //Acr.UserDialogs.UserDialogs.Instance.Toast("Please check your internet connection");
+                }
+            }
+            Refresh();
 
         }
     }

@@ -103,6 +103,13 @@ namespace ControlGastos.Modelo
             return Ingresos;
         } // Fin del método ObtenerTablaDePosiciones
 
+        public async Task<List<EGastosIngresos>> DIngresosGastos(int idControlGastosApp)
+        {
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/DIngresosGastos/{idControlGastosApp}");
+            var list_gastosinngresos = Newtonsoft.Json.JsonConvert.DeserializeObject<List<EGastosIngresos>>(result);
+
+            return list_gastosinngresos;
+        } // Fin del método Obtener Vocabularios
 
     }
 }

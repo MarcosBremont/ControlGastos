@@ -4,7 +4,10 @@
              x:Class="ControlGastos.Pantallas.AhorrosPage"
              Title="Ahorros"
              BackgroundColor="#000000"
-             IconImageSource="ahorrando">
+             IconImageSource="donation"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
             <Grid>
@@ -20,21 +23,21 @@
                         <!--<Label Text="Cuanto dinero deseas ahorrar?" TextColor="White" FontSize="16" Margin="0,10,0,0"/>-->
                         <Label Text="0.30 es igual al 30% de tu sueldo, en el siguiente campo debes colocar 0.30 en el campo por ejemplo" TextColor="White"></Label>
                         <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                            <customcontrol:CustomEntry FontSize="17"  Placeholder="¿Cuanto deseas ahorrar?" Keyboard="Numeric" 
-                                                       TextColor="White" PlaceholderColor="White" HorizontalOptions="FillAndExpand" 
+                            <customcontrol:CustomEntry PlaceholderColor="#171717" FontSize="17"  Placeholder="¿Cuanto deseas ahorrar?" Keyboard="Numeric" 
+                                                       TextColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtAhorro"  Margin="5" />
                         </Frame>
                         
                         <Frame Margin="0,10,0,0" CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                            <customcontrol:CustomEntry FontSize="17"  Placeholder="¿Cuanto Ganas?" Keyboard="Numeric" 
-                                                       TextColor="White" PlaceholderColor="White" HorizontalOptions="FillAndExpand" 
+                            <customcontrol:CustomEntry FontSize="17" PlaceholderColor="#171717" Placeholder="¿Cuanto Ganas?" Keyboard="Numeric" 
+                                                       TextColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtCuantoGanas"  Margin="5" />
                         </Frame>
 
                         <Label x:Name="LblAhorros" TextColor="White"></Label>
 
-                        <Button x:Name="BtnCalcular" CornerRadius="8" Text="Calcular Ahorros" BackgroundColor="#4EC864" TextColor="#171717" Clicked="BtnCalcular_Clicked"></Button>
-                        <Button x:Name="BtnLimpiarCampos" CornerRadius="8" Text="Limpiar Campos" BackgroundColor="#4EC864" TextColor="#171717" Clicked="BtnLimpiarCampos_Clicked"></Button>
+                        <Button x:Name="BtnCalcular" CornerRadius="8" FontAttributes="Bold" Text="CALCULAR AHORROS" BackgroundColor="#4EC864" TextColor="#171717" Clicked="BtnCalcular_Clicked"></Button>
+                        <Button x:Name="BtnLimpiarCampos" CornerRadius="8" FontAttributes="Bold" Text="LIMPIAR CAMPOS" BackgroundColor="#4EC864" TextColor="#171717" Clicked="BtnLimpiarCampos_Clicked"></Button>
 
                     </StackLayout>
 

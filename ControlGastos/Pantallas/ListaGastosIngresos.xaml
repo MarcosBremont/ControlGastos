@@ -4,154 +4,177 @@
              x:Class="ControlGastos.Pantallas.ListaGastosIngresos"
              Title="Ingresos y Gastos"
              BackgroundColor="#000000"
-             IconImageSource="Salario">
+             IconImageSource="IGRESSS"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand" Margin="0,0,0,0"  x:Name="StackLayoutTablaPosiciones">
 
-                <Button Margin="0,10,0,0" Text="Refrescar"
+            <Button Margin="0,10,0,0" Text="REFRESCAR"
                         x:Name="BtnRefrescar"
+                        FontAttributes="Bold"
                         Clicked="BtnRefrescar_Clicked"
                         BackgroundColor="#00FE79"
                         TextColor="#000000" />
 
-                <Label HorizontalOptions="Center" Text="Gastos e Ingresos tuyos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="White"></Label>
+            <Label HorizontalOptions="Center" Text="Gastos e Ingresos tuyos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="White"></Label>
 
-                <Grid Grid.Row="1" HeightRequest="60" BackgroundColor="#333" Padding="6">
-
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
-                        <ColumnDefinition Width="50"></ColumnDefinition>
-                        <ColumnDefinition Width="100"></ColumnDefinition>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-
-                    <Label FontAttributes="Bold" FontSize="10"  TextColor="White" Text="Mes" Grid.Column="0"></Label>
-                    <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Monto" Grid.Column="1"></Label>
-                    <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Descripción" Grid.Column="2"></Label>
-                    <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Gasto o Ingreso" Grid.Column="3"></Label>
-
-                </Grid>
-
-                <Grid >
-                    <ListView Margin="0,0,0,80" x:Name="lsv_TablaPuntuacion" VerticalOptions="FillAndExpand" SeparatorVisibility="Default" SeparatorColor="#3E5569" HasUnevenRows="True" >
-                        <ListView.ItemTemplate>
-
-                            <DataTemplate >
-
-                                <ViewCell>
+            <Grid Grid.Row="1" HeightRequest="60" BackgroundColor="#333" Padding="6">
 
 
-                                    <Grid  BackgroundColor="#000000">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="80"></ColumnDefinition>
-                                            <ColumnDefinition Width="60"></ColumnDefinition>
-                                            <ColumnDefinition Width="100"></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
+                <Label FontAttributes="Bold" FontSize="10"  TextColor="White" Text="Mes" Grid.Column="0"></Label>
+                <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Monto" Grid.Column="1"></Label>
+                <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Descripción" Grid.Column="2"></Label>
+                <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Gasto o Ingreso" Grid.Column="3"></Label>
 
+            </Grid>
 
-                                        <Label LineBreakMode="TailTruncation" TextColor="White" Margin="10,0,0,0"  Grid.Column="0" FontSize="12" HorizontalOptions="Start" Text="{Binding mes}"/>
-                                        <Label TextColor="White" Grid.Column="1" FontSize="12" HorizontalOptions="Start" Text="{Binding dinero}"/>
-                                        <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="2" FontSize="12" HorizontalOptions="Start" Text="{Binding descripcion}"/>
-                                        <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="3" FontSize="12" HorizontalOptions="Start" Text="{Binding gastoingreso}"/>
-                                    </Grid>
+            <Grid >
+                <ListView Margin="0,0,0,0" ItemSelected="lsv_gastoseingresos_ItemSelected" BackgroundColor="#000000" x:Name="lsv_gastoseingresos" VerticalOptions="FillAndExpand" SeparatorVisibility="Default" SeparatorColor="#3E5569" HasUnevenRows="True" >
+                    <ListView.ItemTemplate>
 
+                        <DataTemplate >
 
-                                    <!--ITEM-->
-                                </ViewCell>
-                            </DataTemplate>
-
-
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Grid>
-            <Frame BackgroundColor="White" Padding="0">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    
-                    <StackLayout Orientation="Horizontal">
-                        <Label HorizontalOptions="Center" Text="Total Gastos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
-                        <Label HorizontalOptions="Center" x:Name="LblTotalGastos" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
-                    </StackLayout>
-
-                    <StackLayout Orientation="Horizontal">
-                        <Label HorizontalOptions="Center" Text="Total Ingresos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
-                        <Label HorizontalOptions="Center" x:Name="LblIngresos" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
-                    </StackLayout>
-
-                </StackLayout>
-            </Frame>
-
-            <Label HorizontalOptions="Center" Text="Gastos e Ingresos de Tu Compañero" FontAttributes="Bold" Margin="0,0,0,0" TextColor="White"></Label>
-
-                <Grid Grid.Row="1" HeightRequest="60" BackgroundColor="#333" Padding="6">
-
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
-                        <ColumnDefinition Width="50"></ColumnDefinition>
-                        <ColumnDefinition Width="100"></ColumnDefinition>
-                        <ColumnDefinition Width="80"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-
-                    <Label FontAttributes="Bold" FontSize="10"  TextColor="White" Text="Mes" Grid.Column="0"></Label>
-                    <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Monto" Grid.Column="1"></Label>
-                    <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Descripción" Grid.Column="2"></Label>
-                    <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Gasto o Ingreso" Grid.Column="3"></Label>
-
-                </Grid>
-
-                <Grid >
-                    <ListView Margin="0,0,0,80" x:Name="lsv_TablaPuntuacion2" VerticalOptions="FillAndExpand" SeparatorVisibility="Default" SeparatorColor="#3E5569" HasUnevenRows="True" >
-                        <ListView.ItemTemplate>
-
-                            <DataTemplate >
-
-                                <ViewCell>
+                            <ViewCell>
 
 
                                 <Grid  BackgroundColor="#000000">
 
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="80"></ColumnDefinition>
-                                            <ColumnDefinition Width="60"></ColumnDefinition>
-                                            <ColumnDefinition Width="100"></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"></ColumnDefinition>
+                                        <ColumnDefinition Width="60"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
 
 
                                     <Label LineBreakMode="TailTruncation" TextColor="White" Margin="10,0,0,0"  Grid.Column="0" FontSize="12" HorizontalOptions="Start" Text="{Binding mes}"/>
                                     <Label TextColor="White" Grid.Column="1" FontSize="12" HorizontalOptions="Start" Text="{Binding dinero}"/>
                                     <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="2" FontSize="12" HorizontalOptions="Start" Text="{Binding descripcion}"/>
                                     <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="3" FontSize="12" HorizontalOptions="Start" Text="{Binding gastoingreso}"/>
-                                    </Grid>
+                                </Grid>
 
 
-                                    <!--ITEM-->
-                                </ViewCell>
-                            </DataTemplate>
+                                <!--ITEM-->
+                            </ViewCell>
+                        </DataTemplate>
 
 
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Grid>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Frame BackgroundColor="White" Padding="0">
+                <StackLayout Orientation="Vertical">
+
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label HorizontalOptions="Center" Text="Total Gastos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                            <Label HorizontalOptions="Center" x:Name="LblTotalGastos" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label HorizontalOptions="Center" Text="Total Ingresos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                            <Label HorizontalOptions="Center" x:Name="LblIngresos" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                        <Label HorizontalOptions="Center" Text="Total" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#333"></Label>
+                        <Label HorizontalOptions="Center" x:Name="LblTotal" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#333"></Label>
+                    </StackLayout>
+                </StackLayout>
+
+            </Frame>
+
+            <Label HorizontalOptions="Center" Text="Gastos e Ingresos de Tu Compañero" FontAttributes="Bold" Margin="0,0,0,0" TextColor="White"></Label>
+
+            <Grid Grid.Row="1" HeightRequest="60" BackgroundColor="#333" Padding="6">
+
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label FontAttributes="Bold" FontSize="10"  TextColor="White" Text="Mes" Grid.Column="0"></Label>
+                <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Monto" Grid.Column="1"></Label>
+                <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Descripción" Grid.Column="2"></Label>
+                <Label FontAttributes="Bold" FontSize="10" TextColor="White" Text="Gasto o Ingreso" Grid.Column="3"></Label>
+
+            </Grid>
+
+            <Grid >
+                <ListView Margin="0,0,0,0" BackgroundColor="#000000"  x:Name="lsv_gastoseinngresoscompa" VerticalOptions="FillAndExpand" SeparatorVisibility="Default" SeparatorColor="#3E5569" HasUnevenRows="True" >
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate >
+
+                            <ViewCell>
+
+
+                                <Grid  BackgroundColor="#000000">
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"></ColumnDefinition>
+                                        <ColumnDefinition Width="60"></ColumnDefinition>
+                                        <ColumnDefinition Width="100"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Label LineBreakMode="TailTruncation" TextColor="White" Margin="10,0,0,0"  Grid.Column="0" FontSize="12" HorizontalOptions="Start" Text="{Binding mes}"/>
+                                    <Label TextColor="White" Grid.Column="1" FontSize="12" HorizontalOptions="Start" Text="{Binding dinero}"/>
+                                    <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="2" FontSize="12" HorizontalOptions="Start" Text="{Binding descripcion}"/>
+                                    <Label TextColor="White" LineBreakMode='TailTruncation' Grid.Column="3" FontSize="12" HorizontalOptions="Start" Text="{Binding gastoingreso}"/>
+                                </Grid>
+
+
+                                <!--ITEM-->
+                            </ViewCell>
+                        </DataTemplate>
+
+
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
 
 
             <Frame BackgroundColor="White" Padding="0">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <StackLayout Orientation="Vertical">
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label HorizontalOptions="Center" Text="Total Gastos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
-                        <Label HorizontalOptions="Center" x:Name="LblTotalGastosCompa" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label HorizontalOptions="Center" Text="Total Gastos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                            <Label HorizontalOptions="Center" x:Name="LblTotalGastosCompa" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#CE1127"></Label>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label HorizontalOptions="Center" Text="Total Ingresos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                            <Label HorizontalOptions="Center" x:Name="LblTotalIngresosCompa" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                        </StackLayout>
+
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Label HorizontalOptions="Center" Text="Total Ingresos" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
-                        <Label HorizontalOptions="Center" x:Name="LblTotalIngresosCompa" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#3A944A"></Label>
+                       <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                        <Label HorizontalOptions="Center" Text="Total" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#333"></Label>
+                        <Label HorizontalOptions="Center" x:Name="LblTotalCompa" Text="0" FontAttributes="Bold" Margin="0,0,0,0" TextColor="#333"></Label>
                     </StackLayout>
-
                 </StackLayout>
+
             </Frame>
 
 

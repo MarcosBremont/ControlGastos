@@ -2,6 +2,8 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:ControlGastos.Pantallas"
             x:Class="ControlGastos.Pantallas.TabbedPagePrincipal"
+            SelectedTabColor="#00FE79"
+          
             BarBackgroundColor="#000000">
   <!--Pages can be added as references or inline-->
     <local:PrincipalPage/>

@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customcontrol="clr-namespace:ControlGastos.CustomControls"
-             x:Class="ControlGastos.Pantallas.LoginPage">
+             x:Class="ControlGastos.Pantallas.LoginPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
 
         <StackLayout Margin="0,10,0,0" BackgroundColor="White">
@@ -15,7 +18,7 @@
                 <Frame Padding="0"  BorderColor="#333" Margin="0,0,0,0" HasShadow="False" CornerRadius="8" x:Name="FrUsername" >
 
                     <StackLayout Orientation="Horizontal" Margin="4" >
-                        <customcontrol:CustomEntry HorizontalOptions="FillAndExpand" Text="MarcosBremont" TextTransform="Uppercase" TextColor="#333" PlaceholderColor="#333" FontSize="14" HeightRequest="40" x:Name="TxtUsername"
+                        <customcontrol:CustomEntry HorizontalOptions="FillAndExpand" TextTransform="Uppercase" TextColor="#333" PlaceholderColor="#333" FontSize="14" HeightRequest="40" x:Name="TxtUsername"
                                                    Keyboard="Default" Placeholder="Nombre de Usuario"/>
 
                     </StackLayout>
@@ -25,7 +28,7 @@
 
                     <StackLayout Orientation="Horizontal" Margin="4" >
 
-                        <customcontrol:CustomEntry HorizontalOptions="FillAndExpand" Text="1234" TextTransform="Uppercase" TextColor="#333" PlaceholderColor="#333" FontSize="14" HeightRequest="40" IsPassword="True" x:Name="TxtPassword"
+                        <customcontrol:CustomEntry HorizontalOptions="FillAndExpand" TextTransform="Uppercase" TextColor="#333" PlaceholderColor="#333" FontSize="14" HeightRequest="40" IsPassword="True" x:Name="TxtPassword"
                                                    Keyboard="Default"  Placeholder="Contraseña"/>
 
                         <ImageButton BackgroundColor="Transparent" x:Name="eye" Clicked="eye_Clicked" Source="eye.png" WidthRequest="25"
@@ -47,7 +50,7 @@
                         TextColor="White" BackgroundColor="#4EC864"/>
 
 
-                <StackLayout x:Name="SignUpHere" HorizontalOptions="Center" Orientation="Horizontal">
+                <StackLayout x:Name="SignUpHere" Margin="0,10,0,0" HorizontalOptions="Center" Orientation="Horizontal">
                     <Label HorizontalOptions="Center" TextColor="#333" Margin="0,8,0,0" Text="¿No tienes una cuenta?"></Label>
                     <Label HorizontalOptions="Center" TextColor="#333" FontAttributes="Bold" Margin="0,8,0,0" Text="Registrate aquí"></Label>
                 </StackLayout>
@@ -62,7 +65,7 @@
 
             <StackLayout VerticalOptions="EndAndExpand">
                 <!--<Label HorizontalOptions="Center" x:Name="LblUpdated" TextColor="IndianRed" FontAttributes="Italic" Margin="0,5,0,0" FontSize="12" Text="You're updated"></Label>-->
-                <Label HorizontalOptions="Center" TextColor="Black" x:Name="LblVersion" FontAttributes="Bold" Margin="0,5,0,0" FontSize="12" Text="Version 1.0"></Label>
+                <Label HorizontalOptions="Center" TextColor="Black" x:Name="LblVersion" FontAttributes="Bold" Margin="0,5,0,0" FontSize="12" Text="Version 2.0"></Label>
                 <Label HorizontalOptions="Center" TextColor="Black" FontSize="12" FontAttributes="Bold" Margin="0,5,0,5" Text=" Created by @MarcosBremont"></Label>
             </StackLayout>
 

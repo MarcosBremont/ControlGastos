@@ -85,7 +85,9 @@ namespace ControlGastos.Pantallas
                 }
                 else
                 {
+                    Acr.UserDialogs.UserDialogs.Instance.Loading();
                     var result = await metodos.IniciarSesion(TxtUsername.Text.ToUpper(), TxtPassword.Text.ToUpper());
+                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 
 
                     if (result.respuesta == "OK")

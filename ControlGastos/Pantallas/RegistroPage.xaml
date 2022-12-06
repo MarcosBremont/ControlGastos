@@ -1,9 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customcontrol="clr-namespace:ControlGastos.CustomControls"
-             x:Class="ControlGastos.Pantallas.RegistroPage">
+             x:Class="ControlGastos.Pantallas.RegistroPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             BackgroundColor="#231F20"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="White" Margin="0,0,0,0">
+        <StackLayout BackgroundColor="White" Margin="0,0,0,-100">
 
 
             <Grid x:Name="GridVolverAtrasSettings" >
@@ -80,8 +84,8 @@
                         TextColor="White" BackgroundColor="#4EC864"/>
 
                     <StackLayout x:Name="LayoutLogin" HorizontalOptions="Center" Orientation="Horizontal">
-                        <Label HorizontalOptions="Center" TextColor="#333" Margin="0,8,0,0" Text="Already have an account?"></Label>
-                        <Label HorizontalOptions="Center" TextColor="#4EC864" FontAttributes="Bold" Margin="0,8,0,0" Text="Login"></Label>
+                        <Label HorizontalOptions="Center" TextColor="#333" Margin="0,8,0,0" Text="Ya tienes una cuenta?"></Label>
+                        <Label HorizontalOptions="Center" TextColor="#4EC864" FontAttributes="Bold" Margin="0,8,0,0" Text="Inicia sesión aquí"></Label>
                     </StackLayout>
 
 
