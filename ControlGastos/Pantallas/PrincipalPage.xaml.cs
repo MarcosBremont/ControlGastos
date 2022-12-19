@@ -1,6 +1,6 @@
 ﻿using Acr.UserDialogs;
-using ControlGastos.Herramientas;
 using ControlGastos.Modelo;
+using ControlGastos.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,11 +80,8 @@ namespace ControlGastos.Pantallas
 
         private async void BtnIngresos_Clicked(object sender, EventArgs e)
         {
-
             try
             {
-
-
                 if (PickerMes2.SelectedItem == null)
                 {
                     toastConfig.MostrarNotificacion($"Primero seleccione un mes.", ToastPosition.Top, 3, "#e63946");

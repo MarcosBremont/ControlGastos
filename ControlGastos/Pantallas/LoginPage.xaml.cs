@@ -1,6 +1,6 @@
 ﻿using Acr.UserDialogs;
-using ControlGastos.Herramientas;
 using ControlGastos.Modelo;
+using ControlGastos.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +24,40 @@ namespace ControlGastos.Pantallas
         public LoginPage()
         {
             InitializeComponent();
+
+            Acr.UserDialogs.UserDialogs.Instance.ShowLoading("Por favor espere...");
+
+            try
+            {
+
+                var result = DatosConfiguracion.ObtenerDatosSesion();
+                TxtUsername.Text = result.Item1;
+                TxtPassword.Text = result.Item2;
+                string cerrarsesion = result.Item3;
+
+                if (cerrarsesion == "S")
+                {
+
+                }
+                else
+                {
+
+                    if (!string.IsNullOrEmpty(TxtUsername.Text) && !string.IsNullOrEmpty(TxtPassword.Text))
+                    {
+
+                        IniciarSesion();
+                        Acr.UserDialogs.UserDialogs.Instance.HideLoading();
+
+
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                toastConfig.MostrarNotificacion($"No se pudieron obtener los datos de sesión, intente de nuevo.", ToastPosition.Top, 3, "#c82333");
+
+            }
 
             SignUpHere.GestureRecognizers.Add(
            new TapGestureRecognizer()
@@ -85,9 +119,9 @@ namespace ControlGastos.Pantallas
                 }
                 else
                 {
-                    Acr.UserDialogs.UserDialogs.Instance.Loading();
+                    //Acr.UserDialogs.UserDialogs.Instance.Loading("Cargando...");
                     var result = await metodos.IniciarSesion(TxtUsername.Text.ToUpper(), TxtPassword.Text.ToUpper());
-                    Acr.UserDialogs.UserDialogs.Instance.HideLoading();
+                    //Acr.UserDialogs.UserDialogs.Instance.HideLoading();
 
 
                     if (result.respuesta == "OK")
@@ -96,10 +130,12 @@ namespace ControlGastos.Pantallas
                         App.nombre = result.nombre;
                         App.tokenCompa = result.nombrepersonaentrante;
                         App.idControlGastosAppTokens = result.idControlGastosAppTokens;
+                        App.emojiTuyo = result.emoji;
                         //toastConfig.MostrarNotificacion($"Welcome {result.name}", ToastPosition.Top, 3, "#51C560");
                         await Navigation.PushModalAsync(new TabbedPagePrincipal());
                         DatosConfiguracion.GrabarDatosSesion(TxtUsername.Text, TxtPassword.Text, "N");
-
+                        GetEmojiCompra();
+                        GetEmojiTuyo();
                     }
                     else
                     {
@@ -115,6 +151,20 @@ namespace ControlGastos.Pantallas
             }
 
 
+
         }
+        public async void GetEmojiCompra()
+        {
+            var EmojiCompa = await metodos.GetEmoji(App.tokenCompa);
+            App.emojiCompa = EmojiCompa.emoji;
+            App.idControlGastosAppTokensCompa = EmojiCompa.idControlGastosAppTokens;
+        }
+
+        public async void GetEmojiTuyo()
+        {
+            var EmojiTuyo = await metodos.GetEmoji(App.token);
+            App.emojiTuyo = EmojiTuyo.emoji;
+        }
+
     }
 }

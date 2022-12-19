@@ -22,7 +22,7 @@
 
                         <Frame BackgroundColor="#171717" Padding="0" CornerRadius="8">
 
-                            <Picker IsEnabled="True" Margin="5" FontSize="17" HorizontalOptions="FillAndExpand" SelectedIndexChanged="PickerMes_SelectedIndexChanged" TitleColor="#171717" x:Name="PickerMes" TextColor="#171717" Title="Seleccione el mes">
+                            <Picker IsEnabled="True" Margin="5" FontSize="17" HorizontalOptions="FillAndExpand" SelectedIndexChanged="PickerMes_SelectedIndexChanged" TitleColor="White" x:Name="PickerMes" TextColor="#171717" Title="Seleccione el mes">
                                 <Picker.Items>
                                     <x:String>ENERO</x:String>
                                     <x:String>FEBRERO</x:String>
@@ -43,20 +43,20 @@
 
 
                         <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                            <customcontrol:CustomEntry FontSize="17" PlaceholderColor="#171717" Placeholder="Gastos" Keyboard="Numeric" TextColor="#171717" HorizontalOptions="FillAndExpand" 
+                            <customcontrol:CustomEntry FontSize="17" PlaceholderColor="White" Placeholder="Gastos" Keyboard="Numeric" TextColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtGastos"  Margin="5" />
                         </Frame>
 
                         <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                            <customcontrol:CustomEntry  FontSize="17" PlaceholderColor="#171717" Placeholder="Descripción" HeightRequest="80" TextColor="#171717"
+                            <customcontrol:CustomEntry  FontSize="17" PlaceholderColor="White" Placeholder="Descripción" HeightRequest="80" TextColor="White"
                                                         HorizontalOptions="FillAndExpand" TextTransform="None" x:Name="TxtDescripcion"  Margin="5" />
                         </Frame>
 
                         <Button Margin="0,10,0,0" Text="GUARDAR GASTOS"
                                 FontAttributes="Bold"
                         x:Name="BtnGastos" Clicked="BtnGastos_Clicked"
-                        BackgroundColor="#00FE79"
-                        TextColor="#000000" />
+                        BackgroundColor="#D74441"
+                        TextColor="White" />
 
 
 
@@ -64,7 +64,7 @@
 
                         <Frame BackgroundColor="#171717" Padding="0" CornerRadius="8">
 
-                            <Picker IsEnabled="True" Margin="5" FontSize="17" TitleColor="#171717" HorizontalOptions="FillAndExpand" SelectedIndexChanged="PickerMes2_SelectedIndexChanged" x:Name="PickerMes2" TextColor="White" Title="Seleccione el mes">
+                            <Picker IsEnabled="True" Margin="5" FontSize="17" TitleColor="White" HorizontalOptions="FillAndExpand" SelectedIndexChanged="PickerMes2_SelectedIndexChanged" x:Name="PickerMes2" TextColor="White" Title="Seleccione el mes">
                                 <Picker.Items>
                                     <x:String>ENERO</x:String>
                                     <x:String>FEBRERO</x:String>
@@ -83,11 +83,11 @@
 
                         </Frame>
                         <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                            <customcontrol:CustomEntry FontSize="17"  Placeholder="Ingresos" PlaceholderColor="#171717" Keyboard="Numeric" TextColor="#171717" HorizontalOptions="FillAndExpand" TextTransform="None" x:Name="TxtGastos2"  Margin="5" />
+                            <customcontrol:CustomEntry FontSize="17"  Placeholder="Ingresos" PlaceholderColor="White" Keyboard="Numeric" TextColor="White" HorizontalOptions="FillAndExpand" TextTransform="None" x:Name="TxtGastos2"  Margin="5" />
                         </Frame>
 
                         <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                            <customcontrol:CustomEntry  FontSize="17"  Placeholder="Descripción" PlaceholderColor="#171717" HeightRequest="80" TextColor="#171717" HorizontalOptions="FillAndExpand" TextTransform="None" x:Name="TxtDescripcion2"  Margin="5" />
+                            <customcontrol:CustomEntry  FontSize="17"  Placeholder="Descripción" PlaceholderColor="White" HeightRequest="80" TextColor="White" HorizontalOptions="FillAndExpand" TextTransform="None" x:Name="TxtDescripcion2"  Margin="5" />
                         </Frame>
 
                         <Button Margin="0,10,0,0" Text="GUARDAR INGRESOS"

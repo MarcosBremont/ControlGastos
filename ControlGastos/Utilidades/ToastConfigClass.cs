@@ -5,7 +5,7 @@ using Acr.UserDialogs;
 using System.Text;
 using Xamarin.Forms;
 
-namespace ControlGastos.Herramientas
+namespace ControlGastos.Utilidades
 {
     public class ToastConfigClass
     {

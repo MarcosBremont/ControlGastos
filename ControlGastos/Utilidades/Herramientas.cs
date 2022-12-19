@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -6,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace ControlGastos.Herramientas
+namespace ControlGastos.Utilidades
 {
     public class Herramientas
     {
@@ -43,6 +45,79 @@ namespace ControlGastos.Herramientas
         }
 
 
+        public enum Permiso
+        {
+            Camara,
+            Galeria,
+            Telefono
+        }
+
+        public static async Task<PermissionStatus> CheckPermissions(Permission permission)
+        {
+            var permissionStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(permission);
+            bool request = false;
+            if (permissionStatus == PermissionStatus.Denied)
+            {
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+
+                    var title = $"Permisos de {permission}";
+                    var question = $"Para usar este plugin se requiere el siguiente permiso {permission}. Por favor valla a la configuración y habilite el permiso de {permission} para esta aplicación.";
+                    var positive = "Ajustes";
+                    var negative = "Quizás luego";
+                    var task = Application.Current?.MainPage?.DisplayAlert(title, question, positive, negative);
+                    if (task == null)
+                        return permissionStatus;
+
+                    var result = await task;
+                    if (result)
+                    {
+                        CrossPermissions.Current.OpenAppSettings();
+                    }
+
+                    return permissionStatus;
+                }
+
+                request = true;
+
+            }
+
+            if (request || permissionStatus != PermissionStatus.Granted)
+            {
+                var newStatus = await CrossPermissions.Current.RequestPermissionsAsync(permission);
+
+                if (!newStatus.ContainsKey(permission))
+                {
+                    return permissionStatus;
+                }
+
+                permissionStatus = newStatus[permission];
+
+                if (newStatus[permission] != PermissionStatus.Granted)
+                {
+                    //CHeck fo Camera Permisions...
+                    await CrossPermissions.Current.RequestPermissionsAsync(permission);
+
+                    //permissionStatus = newStatus[permission];
+                    //var title = $"Permisos de {permission}";
+                    //var question = $"Para usar el plugin se requiere el permiso de {permission}";
+                    //var positive = "Ajustes";
+                    //var negative = "Quizás luego";
+                    //var task = Application.Current?.MainPage?.DisplayAlert(title, question, positive, negative);
+                    //if (task == null)
+                    //	return permissionStatus;
+
+                    //var result = await task;
+                    //if result
+                    //{
+                    //	CrossPermissions.Current.OpenAppSettings();
+                    //}
+                    //return permissionStatus;
+                }
+            }
+
+            return permissionStatus;
+        }
 
         public bool IsDecimalValido(string valor)
         {

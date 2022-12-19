@@ -13,5 +13,6 @@ namespace ControlGastos.Modelo.Entidades
         public string nombrepersonaentrante { get; set; }
         public int idControlGastosAppTokens { get; set; }
         public string result { get; set; }
+        public string emoji { get; set; }
     }
 }

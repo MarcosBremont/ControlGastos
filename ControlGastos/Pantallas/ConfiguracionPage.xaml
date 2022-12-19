@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customcontrol="clr-namespace:ControlGastos.CustomControls"
              x:Class="ControlGastos.Pantallas.ConfiguracionPage"
-             Title="Configuraciones"
+             Title="Ajustes"
             
              BackgroundColor="#000000"
              IconImageSource="settings"
@@ -13,15 +13,30 @@
         <StackLayout Margin="10">
             <Label TextColor="White" FontAttributes="Bold" Text="Tu Token es:"></Label>
             <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                <customcontrol:CustomEntry FontSize="17" IsEnabled="False" Placeholder="Tu Token" TextColor="#171717" PlaceholderColor="#171717" HorizontalOptions="FillAndExpand" 
+                <customcontrol:CustomEntry FontSize="17" IsEnabled="False" Placeholder="Tu Token" TextColor="White" PlaceholderColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtToken"  Margin="5" />
             </Frame>
 
             <Label TextColor="White" FontAttributes="Bold" Text="Token de tu companer@:"></Label>
                 <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                    <customcontrol:CustomEntry FontSize="17"  Placeholder="Token Compañer@" TextColor="#171717" PlaceholderColor="#171717" HorizontalOptions="FillAndExpand" 
+                <customcontrol:CustomEntry FontSize="17"  Placeholder="Token Compañer@" TextColor="White" PlaceholderColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtTokenCompa"  Margin="5" />
                 </Frame>
+
+                <Frame x:Name="FrameEmoji" CornerRadius="8" BackgroundColor="AntiqueWhite" Margin="0,10,0,0">
+                    <StackLayout >
+                        <Label  TextColor="#171717" Text="Escoge un emoji para enviarle a tu compañero como te sientes con sus gastos e ingresos"></Label>
+                        <Image x:Name="IMGMood" HeightRequest="50" WidthRequest="50"></Image>
+                        <Label  TextColor="#171717" HorizontalOptions="Center" Text="Toca aquí"></Label>
+                    </StackLayout>
+                </Frame>
+
+            <Frame x:Name="FrameEmoji2" CornerRadius="8" BackgroundColor="AntiqueWhite" Margin="0,10,0,0">
+                <StackLayout >
+                    <Label  TextColor="#171717" Text="El mood de tu compañero ante tus ingresos y gastos es: "></Label>
+                    <Image x:Name="IMGMoodCompa" HeightRequest="50" WidthRequest="50"></Image>
+                </StackLayout>
+            </Frame>
 
 
             <Button Margin="0,10,0,0" Text="GUARDAR" TextColor="#171717" FontAttributes="Bold" x:Name="BtnGuardar" BackgroundColor="#4EC864" Clicked="BtnGuardar_Clicked"></Button>

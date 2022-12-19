@@ -1,4 +1,5 @@
 ﻿using ControlGastos.Modelo.Entidades;
+using ControlGastos.Utilidades;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ControlGastos.Modelo
 {
     public class Metodos
     {
-        Herramientas.Herramientas herramientas = new Herramientas.Herramientas();
+        Herramientas herramientas = new Herramientas();
 
         public Metodos()
         {
@@ -56,7 +57,9 @@ namespace ControlGastos.Modelo
                 App.nombre = usuario.nombre;
                 App.token = usuario.tokens;
                 App.clave = usuario.clave;
+                App.emojiTuyo = usuario.emoji;
             }
+
 
             return usuario;
         } // Fin del método ObtenerVerbos
@@ -70,10 +73,24 @@ namespace ControlGastos.Modelo
             return listado_Posiciones;
         } // Fin del método ObtenerTablaDePosiciones
 
-
-        public async Task<ETokens> UToken(int idControlGastosAppTokens, string token, string nombre, string nombrepersonaentrante)
+        public async Task<ETokens> GetEmoji(string token)
         {
-            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/UToken/{idControlGastosAppTokens}/{token.ToUpper()}/{nombre.ToUpper()}/{nombrepersonaentrante.ToUpper()}");
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/SEmoji/{token}");
+            var Emoji = Newtonsoft.Json.JsonConvert.DeserializeObject<ETokens>(result);
+
+            return Emoji;
+        } // Fin del método ObtenerTablaDePosiciones
+
+        public async Task<ETokens> UToken(int idControlGastosAppTokens, string token, string nombre, string nombrepersonaentrante, string emoji)
+        {
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/UToken/{idControlGastosAppTokens}/{token.ToUpper()}/{nombre.ToUpper()}/{nombrepersonaentrante.ToUpper()}/{emoji}");
+            var response = Newtonsoft.Json.JsonConvert.DeserializeObject<ETokens>(result);
+            return response;
+        }
+
+        public async Task<ETokens> UEmoji(string nombrepersonaentrante, string emoji)
+        {
+            var result = await herramientas.EjecutarSentenciaEnApiLibre($"Productos/UEmoji/{nombrepersonaentrante.ToUpper()}/{emoji.ToUpper()}");
             var response = Newtonsoft.Json.JsonConvert.DeserializeObject<ETokens>(result);
             return response;
         }

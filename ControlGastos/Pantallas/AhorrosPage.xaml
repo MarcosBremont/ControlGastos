@@ -23,13 +23,13 @@
                         <!--<Label Text="Cuanto dinero deseas ahorrar?" TextColor="White" FontSize="16" Margin="0,10,0,0"/>-->
                         <Label Text="0.30 es igual al 30% de tu sueldo, en el siguiente campo debes colocar 0.30 en el campo por ejemplo" TextColor="White"></Label>
                         <Frame CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                            <customcontrol:CustomEntry PlaceholderColor="#171717" FontSize="17"  Placeholder="¿Cuanto deseas ahorrar?" Keyboard="Numeric" 
+                            <customcontrol:CustomEntry PlaceholderColor="White" FontSize="17"  Placeholder="¿Cuanto deseas ahorrar?" Keyboard="Numeric" 
                                                        TextColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtAhorro"  Margin="5" />
                         </Frame>
                         
                         <Frame Margin="0,10,0,0" CornerRadius="8" Padding="0" BackgroundColor="#171717">
-                            <customcontrol:CustomEntry FontSize="17" PlaceholderColor="#171717" Placeholder="¿Cuanto Ganas?" Keyboard="Numeric" 
+                            <customcontrol:CustomEntry FontSize="17" PlaceholderColor="White" Placeholder="¿Cuanto Ganas?" Keyboard="Numeric" 
                                                        TextColor="White" HorizontalOptions="FillAndExpand" 
                                                        TextTransform="None" x:Name="TxtCuantoGanas"  Margin="5" />
                         </Frame>

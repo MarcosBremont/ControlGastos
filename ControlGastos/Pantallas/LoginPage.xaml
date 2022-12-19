@@ -65,7 +65,7 @@
 
             <StackLayout VerticalOptions="EndAndExpand">
                 <!--<Label HorizontalOptions="Center" x:Name="LblUpdated" TextColor="IndianRed" FontAttributes="Italic" Margin="0,5,0,0" FontSize="12" Text="You're updated"></Label>-->
-                <Label HorizontalOptions="Center" TextColor="Black" x:Name="LblVersion" FontAttributes="Bold" Margin="0,5,0,0" FontSize="12" Text="Version 2.0"></Label>
+                <Label HorizontalOptions="Center" TextColor="Black" x:Name="LblVersion" FontAttributes="Bold" Margin="0,5,0,0" FontSize="12" Text="Version 2.1"></Label>
                 <Label HorizontalOptions="Center" TextColor="Black" FontSize="12" FontAttributes="Bold" Margin="0,5,0,5" Text=" Created by @MarcosBremont"></Label>
             </StackLayout>
 
